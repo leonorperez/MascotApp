@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Publicacion</title>
+    <link rel="shortcut icon" href="/static/images/icono.jpg" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='publicacion.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="publicacion">
+      <h1>Crear Publicación</h1>
+
+      <form
+        action="{{ url_for('publicacion') }}"
+        method="post"
+        autocomplete="off"
+      >
+        <label for="tipoPublicacion">
+          <i class="fas fa-id-card"></i>
+        </label>
+        <select name="tipoPublicacion" id="tipoPublicacion" required>
+          <option value="" disabled selected>Tipo publicación</option>
+          <option value="perdida">Perdida</option>
+          <option value="encontrada">Encontrada</option>
+        </select>
+        <label for="tipoMascota">
+          <i class="fas fa-solid fa-paw"></i>
+        </label>
+        <input
+          type="tipoMascota"
+          name="tipoMascota"
+          placeholder="tipoMascota"
+          id="tipoMascota"
+          required
+        />
+
+        <label for="nombreMascota">
+          <i class="fas fa-solid fa-paw"></i>
+        </label>
+        <input
+          type="text"
+          name="nombreMascota"
+          placeholder="nombreMascota"
+          id="nombreMascota"
+          required
+        />
+
+        <label for="color">
+          <i class="fas fa-regular fa-brush"></i>
+        </label>
+        <input
+          type="text"
+          name="color"
+          placeholder="color"
+          id="color"
+          required
+        />
+        <label for="edad">
+          <i class="fas fa-regular fa-hashtag"></i>
+        </label>
+        <input type="text" name="edad" placeholder="edad" id="edad" required />
+
+        <label for="sexo">
+          <i class="fas fa-regular fa-venus-mars"></i>
+        </label>
+        <select name="sexo">
+          <option value="" disabled selected>Sexo</option>
+          <option value="macho">Macho</option>
+          <option value="hembra">Hembra</option>
+        </select>
+
+        <label for="ubicacion">
+          <i class="fas fa-regular fa-location-arrow"></i>
+        </label>
+        <select name="ubicacion">
+          <option value="" disabled selected>Ubicacion</option>
+          <option value="caba">C.A.B.A</option>
+          <option value="zonaNorte">GBA Zona Norte</option>
+          <option value="zonaNoroeste">GBA Zona Noroeste</option>
+          <option value="zonaOeste">GBA Zona Oeste</option>
+          <option value="zonaSudoeste">GBA Zona Sudoeste</option>
+          <option value="zonaSudeste">GBA Zona Sudeste</option>
+        </select>
+        <label for="calle">
+          <i class="fas fa-regular fa-location-arrow"></i>
+        </label>
+        <input
+          type="text"
+          name="calle"
+          placeholder="calles"
+          id="calle"
+          required
+        />
+
+        <label for="foto">
+          <i class="fas fa-regular fa-image"></i>
+        </label>
+	    <input
+          type="file"
+          id="foto"
+          name="foto"
+          enctype="multipart/form-data"
+        />
+
+        <label for="fecha">
+          <i class="fas fa-regular fa-calendar"></i>
+        </label>
+        <input name="fecha" type="date" value={{fecha}} max={{fecha}} required />
+
+
+        <label for="mensaje">
+          <i class="fas fa-regular fa-comment"></i>
+        </label>
+        <input
+          type="text"
+          name="mensaje"
+          placeholder="mensaje"
+          id="mensaje"
+          required
+        />
+        <div class="msg-error">{{ error }}</div>
+        <div class="msg-success">{{ msg }}</div>
+        <input type="submit" value="Crear" />
+      </form>
+    </div>
+  </body>
+</html>
